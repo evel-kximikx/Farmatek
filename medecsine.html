@@ -5,73 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наші Ліки - Аптека</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
     <nav>
         <div class="container">
-            <a href="/" class="logo">Аптека</a>
+            <a href="index.html" class="logo">Аптека</a>
             <ul>
                 <li><a href="index.html">Головна</a></li>
-                <li><a href="medecsine.html">Ліки</a></li>
+                <li><a href="medecine.html">Ліки</a></li>
                 <li><a href="Kontackt.html">Контакти</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="medicines" class="container">
-        <h2>Наші ліки</h2>
-        <form id="search-form">
-            <input
-                type="text"
-                id="search-input"
-                placeholder="Пошук ліків..."
-            >
-        </form>
-        <div id="medicine-list">
-            <div class="medicine-card">
-                <h3>Аспірин</h3>
-                <p>Знеболювальний та жарознижувальний засіб</p>
-                <p class="price-info">
-                    <span class="price">45.00 грн</span>
-                    <span class="original-price">50.00 грн</span>
-                    <span class="discount">-10%</span>
-                </p>
+    <main>
+        <section id="medicines" class="container">
+            <h2>Наші ліки</h2>
+            <form id="search-form" class="search-form">
+                <input type="text" id="search-input" class="search-input" placeholder="Пошук ліків...">
+            </form>
+            <div id="medicine-list" class="medicine-list">
+                <!-- Ліки будуть додані за допомогою JavaScript -->
             </div>
-            <div class="medicine-card">
-                <h3>Парацетамол</h3>
-                <p>Знеболювальний та жарознижувальний засіб</p>
-                <p class="price-info">
-                    <span class="price">40.00 грн</span>
-                </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Про нас</h3>
+                    <p>Ми - ваш надійний партнер у сфері охорони здоров'я, що пропонує широкий асортимент ліків та медичних товарів.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Швидкі посилання</h3>
+                    <ul>
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="medecine.html">Ліки</a></li>
+                        <li><a href="kontakt.html">Контакти</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакти</h3>
+                    <p>Телефон: +38 (044) 123-45-67</p>
+                    <p>Email: info@apteka.com</p>
+                    <p>Адреса: вул. Аптечна, 123, м. Київ, 01001</p>
+                </div>
             </div>
-            <div class="medicine-card">
-                <h3>Ібупрофен</h3>
-                <p>Нестероїдний протизапальний препарат</p>
-                <p class="price-info">
-                    <span class="price">57.00 грн</span>
-                    <span class="original-price">60.00 грн</span>
-                    <span class="discount">-5%</span>
-                </p>
-            </div>
-            <div class="medicine-card">
-                <h3>Омепразол</h3>
-                <p>Засіб для лікування виразки шлунку</p>
-                <p class="price-info">
-                    <span class="price">100.00 грн</span>
-                </p>
-            </div>
-            <div class="medicine-card">
-                <h3>Амоксицилін</h3>
-                <p>Антибіотик широкого спектру дії</p>
-                <p class="price-info">
-                    <span class="price">102.00 грн</span>
-                    <span class="original-price">120.00 грн</span>
-                    <span class="discount">-15%</span>
-                </p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Аптека. Всі права захищені.</p>
             </div>
         </div>
-    </section>
+    </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
+
