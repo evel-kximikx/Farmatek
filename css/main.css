@@ -124,17 +124,57 @@ nav ul li a:hover {
 }
 
 /* Carousel styles */
-.carousel .slide {
-  background: #f8f8f8;
-  padding: 20px;
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 100%; /* Обмеження максимальної ширини */
+  aspect-ratio: 16 / 9; /* Зберігаємо пропорції */
+  margin: auto;
+  overflow: hidden;
 }
 
-.carousel .legend {
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  padding: 10px;
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  flex: 1 0 100%; /* Одна картинка займає 100% простору */
+  box-sizing: border-box;
+}
+
+.slide img {
+  width: 100%;
+  height: auto; /* Забезпечує адаптацію висоти відповідно до ширини */
+  object-fit: cover; /* Обрізає зайве, щоб картинка виглядала красиво */
+  display: block;
+}
+
+.legend {
+  text-align: center;
   font-size: 18px;
-  bottom: 40px;
+  margin-top: 10px;
+}
+
+.controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.control {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.control:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* Medicine card styles */

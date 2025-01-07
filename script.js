@@ -1,23 +1,32 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Функціональність слайдера
-    const slider = document.querySelector('.slider');
-    if (slider) {
-        const slides = slider.querySelectorAll('.slide');
-        let currentSlide = 0;
+    const slides = document.querySelector('.slides');
+    const slideElements = document.querySelectorAll('.slide');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
 
-        function showSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        const totalSlides = slideElements.length;
+        if (totalSlides === 0) return; // Перевірка наявності слайдів
+        if (index < 0) {
+            currentIndex = totalSlides - 1;
+        } else if (index >= totalSlides) {
+            currentIndex = 0;
+        } else {
+            currentIndex = index;
         }
-
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        setInterval(nextSlide, 5000); // Змінюємо слайд кожні 5 секунд
-        showSlide(0); // Показуємо перший слайд
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
+
+    if (prevButton && nextButton && slides) {
+        prevButton.addEventListener('click', () => showSlide(currentIndex - 1));
+        nextButton.addEventListener('click', () => showSlide(currentIndex + 1));
+    }
+
+    // Автоматична зміна слайдів
+    // setInterval(() => showSlide(currentIndex + 1), 5000);
 
     // Функціональність пошуку та відображення ліків
     const medicineList = document.getElementById('medicine-list');
@@ -38,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const medicineCard = document.createElement('div');
                 medicineCard.className = 'medicine-card';
 
-                const discountedPrice = medicine.discount 
+                const discountedPrice = medicine.discount
                     ? (medicine.price * (1 - medicine.discount / 100)).toFixed(2)
                     : medicine.price.toFixed(2);
 
@@ -59,14 +68,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function searchMedicines(searchTerm) {
-            const filteredMedicines = medicines.filter(medicine => 
+            const filteredMedicines = medicines.filter(medicine =>
                 medicine.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 medicine.description.toLowerCase().includes(searchTerm.toLowerCase())
             );
             displayMedicines(filteredMedicines);
         }
 
-        searchInput.addEventListener('input', function() {
+        searchInput.addEventListener('input', function () {
             searchMedicines(this.value);
         });
 
@@ -79,9 +88,12 @@ document.addEventListener('DOMContentLoaded', function() {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -120,4 +132,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
