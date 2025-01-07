@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Автоматична зміна слайдів
-    // setInterval(() => showSlide(currentIndex + 1), 5000);
+     setInterval(() => showSlide(currentIndex + 1), 5000);
 
     // Функціональність пошуку та відображення ліків
     const medicineList = document.getElementById('medicine-list');
