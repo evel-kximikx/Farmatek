@@ -21,7 +21,7 @@ body {
 
 /* Navigation styles */
 nav {
-  background-color: #4CAF50;
+  background-color: #4d4f4d;
   padding: 1rem 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -33,10 +33,8 @@ nav .container {
 }
 
 .logo {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
+    width: 150px; /* Розмір логотипу */
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2)); /* Додає тінь */
 }
 
 nav ul {
